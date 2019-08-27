@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.leaflc.product_flavor">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <meta-data
+            android:name="URL"
+            android:value="${URL}" />
+
+
+
+        <!--     注意这里有个小坑就是如果你在gradle文件配置的字符串变量是01或者023开头的话，
+            /在你从java/kotlin代码获取这个值的时候，他会把他当作一个数字，格式化成1，23，
+             所以在这里结尾加了这个0，在你从代码中记得删除结尾这个0 -->
+        <meta-data
+            android:name="NUMBER"
+            android:value="${NUMBER}\0" />
+
+<!--        <meta-data-->
+<!--            android:name="NUMBER"-->
+<!--            android:value="${NUMBER}" />-->
+    </application>
+
+</manifest>
